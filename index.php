@@ -1,17 +1,22 @@
 <?php
+    echo "Painel administrativo";
+?>
 
-    include_once "topo.php";
-    include_once "menu.php";
-
+<nav>
+    <a href="index.php">Inicio</a>
+    <a href="?pg=admin_clientes">Clientes</a>
+    <a href="?pg=admin_produtos">Produtos</a>
+    <a href="?pg=admin_paginas">Administra Páginas</a>
+    <a href="?pg=admin_contato">Administrar Contatos</a>
+</nav>
+<?php
     // Conteúdo
     if(empty($_SERVER["QUERY_STRING"])){
-        $var = "conteudo";
-        include_once "$var.php";
+       echo "<h3>Bem-vindo ao painel admin.";
     }elseif($_GET['pg']){
         $pg = $_GET['pg'];
         include_once "$pg.php";
     }else{
         echo "Página não encontrada";
     }
-
-    include_once "rodape.php";
+?>
